@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
+import { Example } from '../containers';
+
 class Home extends Component {
   render() {
     return (
-      <p>Home component</p>
+      <div>
+        <p>Home component</p>
+        <Example />
+      </div>
     );
   }
 }

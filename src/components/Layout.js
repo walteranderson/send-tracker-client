@@ -7,7 +7,9 @@ const Layout = (props) => {
       <Link to='/'>Home</Link>&nbsp;
       <Link to='/about'>About</Link>
 
-      {props.children}
+      <div>
+        {props.children}
+      </div>
 
       <hr />
 

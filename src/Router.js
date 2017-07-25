@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route
 } from 'react-router-dom';
 
@@ -13,11 +13,11 @@ import {
 
 export default () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
       </Layout>
-    </Router>
+    </BrowserRouter>
   );
 };
