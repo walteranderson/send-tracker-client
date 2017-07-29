@@ -4,11 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 
-import {
-  Home,
-  About,
-  Layout
-} from './components';
+import { Home, Layout } from './components';
 
 
 export default () => {
@@ -16,7 +12,6 @@ export default () => {
     <BrowserRouter>
       <Layout>
         <Route exact path='/' component={Home} />
-        <Route path='/about' component={About} />
       </Layout>
     </BrowserRouter>
   );

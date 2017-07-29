@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Session } from '../containers';
 
-import { Example } from '../containers';
-
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <p>Home component</p>
-        <Example />
-      </div>
-    );
-  }
-}
+const Home = () => {
+  return (
+    <div>
+      <Session />
+    </div>
+  );
+};
 
 export default Home;

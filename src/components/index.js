@@ -1,9 +1,11 @@
 import Home from './Home';
 import Layout from './Layout';
-import About from './About';
+import Session from './Session';
+import SessionTimer from './SessionTimer';
 
 export {
   Home,
-  About,
-  Layout
+  Layout,
+  Session,
+  SessionTimer
 };

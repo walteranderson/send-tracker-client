@@ -1,5 +1,5 @@
-import Example from './Example';
+import Session from './Session';
 
 export {
-  Example
+  Session
 };
