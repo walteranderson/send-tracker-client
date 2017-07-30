@@ -1,4 +1,3 @@
-
 export default (time) => {
   let hours   = Math.floor(time / 3600);
   let minutes = Math.floor((time - (hours * 3600)) / 60);

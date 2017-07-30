@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-
-import './index.css';
-import format from './format';
+import { formatDuration } from '../utils';
 
 const DELAY = 1000;
-// const INITIAL_DISPLAY_TIME = '00:00:00';
 
 class SessionTimer extends Component {
   constructor(props) {
@@ -31,17 +28,22 @@ class SessionTimer extends Component {
 
     // props have changed, decide how to re-render
     if (timer.running !== nextProps.timer.running) {
-
       if (nextProps.timer.running) {
         this.start();
       } else {
         this.pause();
       }
-
     }
   }
 
   start() {
+    const { timer, updateHandler } = this.props;
+
+    // don't skip the first second
+    if (timer.duration === 0) {
+      updateHandler(1);
+    }
+
     this.setState({
       interval: setInterval(this.update, DELAY)
     });
@@ -53,13 +55,10 @@ class SessionTimer extends Component {
   }
 
   update() {
-    const {
-      timer,
-      updateHandler
-    } = this.props;
+    const { timer, updateHandler } = this.props;
 
     // this is a fairly naive implementation
-    const newClock = timer.duration + 1;
+    let newClock = timer.duration + 1;
 
     updateHandler(newClock);
   }
@@ -69,7 +68,7 @@ class SessionTimer extends Component {
 
     return (
       <div className='session-timer__container'>
-        {format(timer.duration)}
+        {formatDuration(timer.duration)}
       </div>
     );
   }

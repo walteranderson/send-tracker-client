@@ -1,4 +1,5 @@
 import update from 'immutability-helper';
+import moment from 'moment';
 import {
   SESSION_START,
   SESSION_PAUSE,
@@ -11,7 +12,7 @@ const initialState = {
     duration: 0,
     running: false
   },
-  // current: null,
+  current: null,
   history: []
 };
 
@@ -23,6 +24,9 @@ export default (state = initialState, action) => {
       return update(state, {
         timer: {
           running: { $set: true }
+        },
+        current: {
+          $set: { startedAt: moment() }
         }
       });
     case SESSION_PAUSE:
@@ -45,9 +49,12 @@ export default (state = initialState, action) => {
         },
         history: {
           $push: [{
-            duration: state.timer.duration
+            duration: moment().diff(state.current.startedAt),
+            finishedAt: moment(),
+            ...state.current
           }]
-        }
+        },
+        current: { $set: null }
       });
     default:
       return state;
