@@ -13,9 +13,9 @@ const Session = (props) => {
   } = props;
 
   // make sure you can't click the buttons in the wrong order
-  const start = () => !session.timer.running ? startSession() : null;
-  const pause = () => session.timer.running ? pauseSession() : null;
-  const end = () => session.current ? endSession() : null;
+  const start = () => startSession(session);
+  const pause = () => pauseSession(session);
+  const end = () => endSession(session);
 
   let sessionHistory;
   if (session.history.length) {

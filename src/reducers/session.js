@@ -2,6 +2,7 @@ import update from 'immutability-helper';
 import moment from 'moment';
 import {
   SESSION_START,
+  SESSION_RESUME,
   SESSION_PAUSE,
   SESSION_END,
   SESSION_TIMER_UPDATE
@@ -27,6 +28,12 @@ export default (state = initialState, action) => {
         },
         current: {
           $set: { startedAt: moment() }
+        }
+      });
+    case SESSION_RESUME:
+      return update(state, {
+        timer: {
+          running: { $set: true }
         }
       });
     case SESSION_PAUSE:

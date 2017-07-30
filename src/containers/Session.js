@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Session from '../components/Session';
 import {
   startSession,
+  resumeSession,
   pauseSession,
   endSession,
   timerUpdate
@@ -17,15 +18,36 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startSession() {
-      dispatch(startSession());
+    // only start the session if the timer isn't running
+    // if we have a current session running, resume instead of starting a new one.
+    startSession(session) {
+      if (session.timer.running) {
+        return;
+      }
+
+      if (session.current) {
+        dispatch(resumeSession());
+      } else {
+        dispatch(startSession());
+      }
     },
-    pauseSession() {
+    // only pause if the timer is running.
+    pauseSession(session) {
+      if (!session.timer.running) {
+        return;
+      }
+
       dispatch(pauseSession());
     },
-    endSession() {
+    // only end if we have a current session.
+    endSession(session) {
+      if (!session.current) {
+        return;
+      }
+
       dispatch(endSession());
     },
+    // update the timer.
     timerUpdate(duration) {
       dispatch(timerUpdate(duration));
     }

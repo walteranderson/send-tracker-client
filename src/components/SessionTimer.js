@@ -39,10 +39,9 @@ class SessionTimer extends Component {
   start() {
     const { timer, updateHandler } = this.props;
 
-    // don't skip the first second
-    if (timer.duration === 0) {
-      updateHandler(1);
-    }
+    // add the initial second since
+    // setInterval will skip it.
+    updateHandler(timer.duration + 1);
 
     this.setState({
       interval: setInterval(this.update, DELAY)

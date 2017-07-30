@@ -6,6 +6,13 @@ export const startSession = () => {
   };
 };
 
+export const SESSION_RESUME = 'SESSION_RESUME';
+export const resumeSession = () => {
+  return {
+    type: SESSION_RESUME
+  };
+};
+
 export const SESSION_PAUSE = 'SESSION_PAUSE';
 export const pauseSession = () => {
   return {
