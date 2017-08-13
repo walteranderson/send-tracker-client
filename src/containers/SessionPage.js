@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
         return;
       }
 
-      if (session.current) {
+      if (session.current && session.current.startedAt) {
         dispatch(resumeSession());
       } else {
         dispatch(startSession());

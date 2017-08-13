@@ -5,7 +5,8 @@ import {
   SESSION_RESUME,
   SESSION_PAUSE,
   SESSION_END,
-  SESSION_TIMER_UPDATE
+  SESSION_TIMER_UPDATE,
+  SESSION_SET_LOCATION
 } from '../actions/SessionActions';
 
 const initialState = {
@@ -13,7 +14,7 @@ const initialState = {
     duration: 0,
     running: false
   },
-  current: null,
+  current: {},
   history: []
 };
 
@@ -27,7 +28,7 @@ export default (state = initialState, action) => {
           running: { $set: true }
         },
         current: {
-          $set: { startedAt: moment() }
+          $merge: { startedAt: moment() }
         }
       });
     case SESSION_RESUME:
@@ -61,7 +62,13 @@ export default (state = initialState, action) => {
             ...state.current
           }]
         },
-        current: { $set: null }
+        current: { $set: {} }
+      });
+    case SESSION_SET_LOCATION:
+      return update(state, {
+        current: {
+          $merge: { location: payload.location }
+        }
       });
     default:
       return state;

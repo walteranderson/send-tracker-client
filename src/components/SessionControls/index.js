@@ -12,7 +12,7 @@ const SessionControls = (props) => {
   } = props;
 
   let endButton;
-  if (session.current) {
+  if (session.current && session.current.startedAt) {
     endButton = (
       <div className='session-controls__end'>
         <Button

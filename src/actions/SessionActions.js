@@ -36,3 +36,13 @@ export const timerUpdate = (duration) => {
     }
   };
 };
+
+export const SESSION_SET_LOCATION = 'SESSION_SET_LOCATION';
+export const setLocation = (location) => {
+  return {
+    type: SESSION_SET_LOCATION,
+    payload: {
+      location
+    }
+  };
+};
