@@ -4,6 +4,7 @@ import Button from 'react-md/lib/Buttons/Button';
 
 const Layout = (props) => {
   const nav = <Button key='nav' icon>menu</Button>;
+
   return (
     <div>
       <Toolbar
@@ -11,8 +12,7 @@ const Layout = (props) => {
         colored
         title='Send Tracker'
         nav={nav} />
-
-      <div className='md-grid md-toolbar-relative'>
+      <div>
         {props.children}
       </div>
 

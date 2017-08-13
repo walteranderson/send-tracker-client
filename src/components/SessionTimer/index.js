@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { formatDuration } from '../utils';
+import { formatDuration } from '../../utils';
+
+import './index.css';
 
 const DELAY = 1000;
 
@@ -67,7 +69,9 @@ class SessionTimer extends Component {
 
     return (
       <div className='session-timer__container'>
-        {formatDuration(timer.duration)}
+        <div className='session-timer__clock'>
+          {formatDuration(timer.duration)}
+        </div>
       </div>
     );
   }

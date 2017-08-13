@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Session from '../components/Session';
+import SessionPage from '../components/SessionPage';
 import {
   startSession,
   resumeSession,
@@ -54,5 +54,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Session);
-
+export default connect(mapStateToProps, mapDispatchToProps)(SessionPage);

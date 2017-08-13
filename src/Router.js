@@ -4,14 +4,15 @@ import {
   Route
 } from 'react-router-dom';
 
-import { Home, Layout } from './components';
+import Layout from './components/Layout';
+import { SessionPage } from './containers';
 
 
 export default () => {
   return (
     <BrowserRouter>
       <Layout>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={SessionPage} />
       </Layout>
     </BrowserRouter>
   );

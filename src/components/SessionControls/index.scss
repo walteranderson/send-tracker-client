@@ -1,0 +1,12 @@
+.session-controls__end {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  z-index: 10;
+
+  button {
+    height: 44px;
+    font-size: 1.4em;
+    width: 15em;
+  }
+}
