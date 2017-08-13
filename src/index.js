@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 
-import './index.css';
+import './styles/index.css';
 
 import registerServiceWorker from './utils/registerServiceWorker';
 import Router from './Router';
