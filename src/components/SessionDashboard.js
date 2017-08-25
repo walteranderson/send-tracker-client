@@ -9,11 +9,12 @@ const SessionDashboard = (props) => {
     availableLocations,
     setCurrentLocation
   } = props;
+  const hasLocation = session && session.location;
 
   return (
     <div className={className}>
       {
-        session && session.location
+        hasLocation
           ? <LocationDashboard location={session.location} />
           : <LocationSearch data={availableLocations} onSelect={setCurrentLocation} />
       }

@@ -7,6 +7,7 @@ import './index.css';
 
 const SessionPage = (props) => {
   const {
+    timer,
     session,
     startSession,
     pauseSession,
@@ -14,19 +15,20 @@ const SessionPage = (props) => {
     timerUpdate
   } = props;
 
-  const start = () => startSession(session);
-  const pause = () => pauseSession(session);
+  const start = () => startSession(session, timer);
+  const pause = () => pauseSession(timer);
   const end = () => endSession(session);
 
   return (
     <div>
       <SessionTimer
-        timer={session.timer}
+        timer={timer}
         updateHandler={timerUpdate} />
 
       <CurrentDashboard className='session-page__dashboard' />
 
       <SessionControls
+        timer={timer}
         session={session}
         start={start}
         pause={pause}

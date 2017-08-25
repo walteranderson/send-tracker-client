@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 import session from './session';
-import locationSearch from './locationSearch';
+import locations from './locations';
+import timer from './timer';
+import grades from './grades';
 
 export default combineReducers({
+  timer,
   session,
-  locationSearch
+  locations,
+  grades
 });

@@ -5,6 +5,7 @@ import './index.css';
 
 const SessionControls = (props) => {
   const {
+    timer,
     session,
     start,
     pause,
@@ -27,7 +28,7 @@ const SessionControls = (props) => {
 
   let clickHandler = start;
   let icon = 'play_arrow';
-  if (session.timer.running) {
+  if (timer.running) {
     icon = 'pause';
     clickHandler = pause;
   }

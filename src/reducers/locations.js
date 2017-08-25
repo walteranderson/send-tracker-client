@@ -1,11 +1,10 @@
-
-  // availableLocations
-  // selectedLocation
-  // search
-    // query
-    // isSearching?
+// availableLocations
+// selectedLocation
+// search
+// - query
+// - isSearching?
 const initialState = {
-  available: [
+  all: [
     { label: 'ABP', id: 1 },
     { label: 'Crux', id: 2 }
   ]

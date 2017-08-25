@@ -9,9 +9,10 @@ const LocationSearch = (props) => {
   } = props;
 
   const onAutocomplete = (label, index, matches) => {
-    // TODO: can I just get the object back somehow?
-    if (matches[index]) {
-      onSelect(matches[index]);
+    const location = matches[index];
+
+    if (location) {
+      onSelect(location);
     }
   };
 

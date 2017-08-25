@@ -6,12 +6,12 @@ import { setLocation } from '../actions/SessionActions';
 const mapStateToProps = (state) => {
   const {
     session,
-    locationSearch
+    locations
   } = state;
 
   return {
     session: session.current,
-    availableLocations: locationSearch.available
+    availableLocations: locations.all
   };
 };
 

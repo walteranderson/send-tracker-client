@@ -1,5 +1,11 @@
 import formatDuration from './formatDuration';
+import {
+  makeAction,
+  makeActionCreator
+} from './makeActions';
 
 export {
-  formatDuration
+  makeAction,
+  makeActionCreator,
+  formatDuration,
 }
