@@ -9,12 +9,10 @@ export const getAllGradesReceived = makeActionCreator(GRADES_ALL_RECEIVED, 'grad
 export const getAllGrades = () => {
   return dispatch => {
     dispatch(getAllGradesSending(true));
-    setTimeout(() => {
-      const grades = [
-        { id: 1, label: 'Panda (V1 - V2)', color: '#FFFFFF' },
-        { id: 2, label: 'Dog (V3 - V4)', color: '#000000' }
-      ];
-      dispatch(getAllGradesReceived(grades));
-    }, 1000);
+    const grades = [
+      { id: 1, location_id: 1, label: 'Panda (V1 - V2)', color: '#FFFFFF' },
+      { id: 2, location_id: 1, label: 'Dog (V3 - V4)', color: '#000000' }
+    ];
+    dispatch(getAllGradesReceived(grades));
   };
 };
