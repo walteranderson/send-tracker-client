@@ -8,6 +8,10 @@ const LocationSearch = (props) => {
     onSelect,
   } = props;
 
+  const deleteKeys = [
+    'grades'
+  ];
+
   const onAutocomplete = (label, index, matches) => {
     const location = matches[index];
 
@@ -23,6 +27,7 @@ const LocationSearch = (props) => {
       data={data}
       dataLabel='label'
       filter={filter}
+      deleteKeys={deleteKeys}
       clearOnAutocomplete
       onAutocomplete={onAutocomplete} />
   );

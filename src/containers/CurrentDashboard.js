@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import SessionDashboard from '../components/SessionDashboard';
 
 import { setLocation } from '../actions/SessionActions';
@@ -6,12 +7,17 @@ import { setLocation } from '../actions/SessionActions';
 const mapStateToProps = (state) => {
   const {
     session,
-    locations
+    entities
   } = state;
 
+  let availableLocations = [];
+  if (entities.locations) {
+    availableLocations = _.map(entities.locations, location => location);
+  }
+
   return {
-    session: session.current,
-    availableLocations: locations.all
+    availableLocations,
+    session: session.current
   };
 };
 
