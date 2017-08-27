@@ -1,21 +1,22 @@
 import React from 'react';
-import { formatDuration } from '../utils';
+import LocationSearch from './LocationSearch';
+import LocationDashboard from './LocationDashboard';
 
 const SessionDashboard = (props) => {
-  const { session } = props;
+  const {
+    session,
+    className,
+    availableLocations,
+    setCurrentLocation
+  } = props;
+  const hasLocation = session && session.location;
 
   return (
-    <div>
-      <p>Started at: {session.startedAt.format('h:mm:ss a')}</p>
+    <div className={className}>
       {
-        session.finishedAt
-          ? <p>Finished at: {session.finishedAt.format('h:mm:ss a')}</p>
-          : null
-      }
-      {
-        session.duration
-          ? <p>Duration: {formatDuration(Math.round(session.duration / 1000))}</p>
-          : null
+        hasLocation
+          ? <LocationDashboard location={session.location} />
+          : <LocationSearch data={availableLocations} onSelect={setCurrentLocation} />
       }
     </div>
   );

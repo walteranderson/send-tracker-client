@@ -1,0 +1,23 @@
+@import 'react-md/src/scss/react-md';
+@import '../../styles/_variables.scss';
+
+.session-timer__container {
+  @include md-box-shadow(2);
+  background-color: $md-grey-200;
+  height: $timer-container-height;
+  position: fixed;
+  width: 100%;
+  top: 56px;
+}
+
+
+.session-timer__clock {
+  color: $md-grey-800;
+  text-align: center;
+  // font-size: 70px;
+  // padding: 65.5px 0;
+
+  font-size: $timer-clock-font-size;
+  padding: $timer-clock-center-padding 0;
+
+}

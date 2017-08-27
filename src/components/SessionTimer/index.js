@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { formatDuration } from '../utils';
+import { formatDuration } from '../../utils';
+
+import './index.css';
 
 const DELAY = 1000;
 
@@ -37,11 +39,11 @@ class SessionTimer extends Component {
   }
 
   start() {
-    const { timer, updateHandler } = this.props;
+    // const { timer, updateHandler } = this.props;
 
     // add the initial second since
     // setInterval will skip it.
-    updateHandler(timer.duration + 1);
+    // updateHandler(timer.duration + 1);
 
     this.setState({
       interval: setInterval(this.update, DELAY)
@@ -67,7 +69,9 @@ class SessionTimer extends Component {
 
     return (
       <div className='session-timer__container'>
-        {formatDuration(timer.duration)}
+        <div className='session-timer__clock'>
+          {formatDuration(timer.duration)}
+        </div>
       </div>
     );
   }

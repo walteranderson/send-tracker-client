@@ -1,7 +1,7 @@
-import Session from './Session';
+import SessionPage from './SessionPage';
 import CurrentDashboard from './CurrentDashboard';
 
 export {
-  Session,
+  SessionPage,
   CurrentDashboard
 };

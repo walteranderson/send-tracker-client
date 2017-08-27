@@ -1,17 +1,21 @@
 import { connect } from 'react-redux';
-import Session from '../components/Session';
+import SessionPage from '../components/SessionPage';
 import {
   startSession,
-  resumeSession,
-  pauseSession,
-  endSession,
-  timerUpdate
+  endSession
 } from '../actions/SessionActions';
+import {
+  startTimer,
+  pauseTimer,
+  updateTimer,
+  endTimer
+} from '../actions/TimerActions';
 
 const mapStateToProps = (state) => {
-  const { session } = state;
+  const { session, timer } = state;
 
   return {
+    timer,
     session
   };
 };
@@ -20,39 +24,43 @@ const mapDispatchToProps = (dispatch) => {
   return {
     // only start the session if the timer isn't running
     // if we have a current session running, resume instead of starting a new one.
-    startSession(session) {
-      if (session.timer.running) {
+    startSession(session, timer) {
+      if (timer.running) {
         return;
       }
 
-      if (session.current) {
-        dispatch(resumeSession());
+      if (session.current && session.current.startedAt) {
+        dispatch(startTimer());
       } else {
+        dispatch(startTimer());
         dispatch(startSession());
       }
     },
+
     // only pause if the timer is running.
-    pauseSession(session) {
-      if (!session.timer.running) {
+    pauseSession(timer) {
+      if (!timer.running) {
         return;
       }
 
-      dispatch(pauseSession());
+      dispatch(pauseTimer());
     },
+
     // only end if we have a current session.
     endSession(session) {
       if (!session.current) {
         return;
       }
 
+      dispatch(endTimer());
       dispatch(endSession());
     },
+
     // update the timer.
     timerUpdate(duration) {
-      dispatch(timerUpdate(duration));
+      dispatch(updateTimer(duration));
     }
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Session);
-
+export default connect(mapStateToProps, mapDispatchToProps)(SessionPage);

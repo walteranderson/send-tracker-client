@@ -1,0 +1,16 @@
+// TODO: probably should import these locally for better performance
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@import 'react-md/src/scss/react-md';
+
+// Override material design theme here if you want, example:
+$md-primary-color: $md-teal-500;
+$md-secondary-color: $md-red-a-700;
+ 
+@include react-md-everything;
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
