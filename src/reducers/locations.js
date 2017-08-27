@@ -23,6 +23,7 @@ export default (state = initialState, action) => {
       });
     case LOCATIONS_ALL_RECEIVED:
       return update(state, {
+        sending: { $set: false },
         all: { $set: payload.locations }
       });
     default:
