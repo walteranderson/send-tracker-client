@@ -7,7 +7,7 @@ import { makeActionCreator } from '../utils'
 export const LOCATIONS_ALL_SENDING = 'LOCATIONS_ALL_SENDING';
 export const getAllLocationsSending = makeActionCreator(LOCATIONS_ALL_SENDING);
 export const LOCATIONS_ALL_RECEIVED = 'LOCATIONS_ALL_RECEIVED';
-export const getAllLocationsReceived = makeActionCreator(LOCATIONS_ALL_RECEIVED);
+export const getAllLocationsReceived = makeActionCreator(LOCATIONS_ALL_RECEIVED, 'locations');
 
 export const getAllLocations = () => {
   return dispatch => {
@@ -15,11 +15,10 @@ export const getAllLocations = () => {
 
     api.getAllLocations()
       .then((locations) => {
-        dispatch(getAllLocationsReceived());
+        dispatch(getAllLocationsReceived(locations));
 
         const data = normalize(locations, [locationSchema]);
         dispatch(mergeEntities(data.entities));
-
       });
   };
 };

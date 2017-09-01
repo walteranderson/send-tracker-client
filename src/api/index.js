@@ -12,3 +12,13 @@ export const getAllLocations = () => {
     .get('/locations')
     .then(res => res.data);
 };
+
+export const getExpandedUser = () => {
+  if (USE_DUMMY_API) {
+    return Promise.resolve(dummyData.expandedUser());
+  }
+
+  return http
+    .get('/users/me?expanded')
+    .then(res => res.data);
+};

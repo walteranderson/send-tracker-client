@@ -1,5 +1,6 @@
 // import { makeActionCreator } from '../utils';
-import { getAllLocations } from './LocationActions';
+// import { getAllLocations } from './LocationActions';
+import { getExpandedUser } from './UserActions';
 
 // export const PRELOAD_SENDING = 'PRELOAD_SENDING';
 // export const preloadSending = makeActionCreator(PRELOAD_SENDING, 'sending');
@@ -9,6 +10,6 @@ import { getAllLocations } from './LocationActions';
 
 export const preload = () => {
   return dispatch => {
-    dispatch(getAllLocations());
+    dispatch(getExpandedUser());
   };
 };
