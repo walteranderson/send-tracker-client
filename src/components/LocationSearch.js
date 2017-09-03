@@ -9,7 +9,7 @@ const LocationSearch = (props) => {
   } = props;
 
   const deleteKeys = [
-    'grades'
+    'gradesets'
   ];
 
   const onAutocomplete = (label, index, matches) => {

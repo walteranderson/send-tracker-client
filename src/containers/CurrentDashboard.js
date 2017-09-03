@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import SessionDashboard from '../components/SessionDashboard';
-
-import { setLocation } from '../actions/SessionActions';
+import { setLocation } from '../redux/modules/session';
 
 const mapStateToProps = (state) => {
   const {

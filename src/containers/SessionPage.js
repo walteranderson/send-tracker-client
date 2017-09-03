@@ -3,13 +3,13 @@ import SessionPage from '../components/SessionPage';
 import {
   startSession,
   endSession
-} from '../actions/SessionActions';
+} from '../redux/modules/session';
 import {
   startTimer,
   pauseTimer,
   updateTimer,
   endTimer
-} from '../actions/TimerActions';
+} from '../redux/modules/timer';
 
 const mapStateToProps = (state) => {
   const { session, timer } = state;

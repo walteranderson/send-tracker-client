@@ -1,24 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware, compose } from 'redux';
-import logger from 'redux-logger';
-import { preload } from './actions/PreloadActions';
-
-import './styles/index.css';
 
 import registerServiceWorker from './utils/registerServiceWorker';
+import { getPreload } from './redux/modules/preload';
 import Router from './Router';
-import reducers from './reducers';
+import './styles/index.css';
+import configureStore from './redux/store';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = configureStore();
 
-const store = createStore(reducers, composeEnhancers(
-  applyMiddleware(thunk, logger)
-));
-
-store.dispatch(preload());
+store.dispatch(getPreload());
 
 render(
   <Provider store={store}>

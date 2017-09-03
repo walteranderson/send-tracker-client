@@ -1,11 +1,9 @@
-import reducer from '../timer';
-
-import {
+import reducer, {
   startTimer,
   pauseTimer,
   updateTimer,
   endTimer
-} from '../../actions/TimerActions';
+} from '../timer';
 
 const initialState = {
   running: false,

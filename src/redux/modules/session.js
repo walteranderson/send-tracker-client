@@ -1,9 +1,31 @@
 import update from 'immutability-helper';
+import moment from 'moment';
 import {
-  SESSION_START,
-  SESSION_END,
-  SESSION_SET_LOCATION
-} from '../actions/SessionActions';
+  makeAction,
+  makeActionCreator
+} from '../../utils';
+
+// ACTIONS
+
+export const SESSION_START = 'SESSION_START';
+export const startSession = () => {
+  return makeAction(SESSION_START, {
+    startedAt: moment()
+  });
+};
+
+export const SESSION_END = 'SESSION_END';
+export const endSession = () => {
+  return makeAction(SESSION_END, {
+    finishedAt: moment()
+  });
+};
+
+export const SESSION_SET_LOCATION = 'SESSION_SET_LOCATION';
+export const setLocation = makeActionCreator(SESSION_SET_LOCATION, 'location');
+
+
+// REDUCER
 
 const initialState = {
   current: {},

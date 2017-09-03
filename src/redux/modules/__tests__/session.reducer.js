@@ -1,9 +1,8 @@
-import reducer from '../session';
 import moment from 'moment';
-import {
+import reducer, {
   SESSION_START,
   SESSION_END,
-} from '../../actions/SessionActions';
+} from '../session';
 
 const initialState = {
   current: {},

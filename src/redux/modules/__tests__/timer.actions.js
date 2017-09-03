@@ -1,4 +1,4 @@
-import * as actions from '../TimerActions';
+import * as actions from '../timer';
 
 describe('TimerActions', () => {
   function assert(expected, action, params = []) {

@@ -1,10 +1,22 @@
 import update from 'immutability-helper';
-import {
-  TIMER_START,
-  TIMER_PAUSE,
-  TIMER_UPDATE,
-  TIMER_END
-} from '../actions/TimerActions';
+import { makeActionCreator } from '../../utils';
+
+// ACTIONS
+
+export const TIMER_START = 'TIMER_START';
+export const startTimer = makeActionCreator(TIMER_START);
+
+export const TIMER_PAUSE = 'TIMER_PAUSE';
+export const pauseTimer = makeActionCreator(TIMER_PAUSE);
+
+export const TIMER_END = 'TIMER_END';
+export const endTimer = makeActionCreator(TIMER_END);
+
+export const TIMER_UPDATE = 'TIMER_UPDATE';
+export const updateTimer = makeActionCreator(TIMER_UPDATE, 'duration');
+
+
+// REDUCER
 
 const initialState = {
   running: false,

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import * as actions from '../SessionActions';
+import * as actions from '../session';
 
 describe('SessionActions', () => {
   function assert(expected, action, params = []) {

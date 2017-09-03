@@ -1,8 +1,10 @@
-import * as api from '../api';
-import { mergeEntities } from './EntityActions';
-import { normalize } from 'normalizr';
-import { makeActionCreator } from '../utils/makeActions';
-import { userSchema } from '../utils/schemas';
+import * as api from '../../api';
+import { makeActionCreator } from '../../utils';
+
+import { mergeEntities } from './entities';
+import { userSchema } from '../../utils/schemas';
+
+// ACTIONS
 
 export const EXPANDED_USER_SENDING = 'EXPANDED_USER_SENDING';
 export const getExpandedUserSending = makeActionCreator(EXPANDED_USER_SENDING);
@@ -17,10 +19,7 @@ export const getExpandedUser = () => {
     api.getExpandedUser()
       .then(user => {
         dispatch(getExpandedUserReceived(user));
-
-        const { entities } = normalize(user, userSchema);
-        dispatch(mergeEntities(entities));
+        dispatch(mergeEntities(user, userSchema));
       });
-
   };
 };
