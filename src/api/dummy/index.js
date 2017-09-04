@@ -26,18 +26,19 @@ const makeGradesBySet = (setId, labels = []) => {
   return grades;
 };
 
-const makeGradeset = (type = 'custom', labels = []) => {
+const makeGradeset = (type = 'custom', label = '', labels = []) => {
   const id = generateUID();
 
   return {
     id,
     type,
+    label,
     grades: makeGradesBySet(id, labels)
   };
 };
 
-const VScale = makeGradeset('VSCALE', ['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7']);
-const FontScale = makeGradeset('FONT', ['5A', '5B', '5C', '6A', '6B', '6C', '7A', '7B', '7C']);
+const VScale = makeGradeset('VSCALE', 'V-System', ['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7']);
+const FontScale = makeGradeset('FONT', 'Fontainebleau', ['5A', '5B', '5C', '6A', '6B', '6C', '7A', '7B', '7C']);
 
 const makeLocation = (label, gradesets = null) => {
   const id = generateUID();

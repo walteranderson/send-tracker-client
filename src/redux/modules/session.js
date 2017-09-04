@@ -1,5 +1,6 @@
 import update from 'immutability-helper';
 import moment from 'moment';
+import _ from 'lodash';
 import {
   makeAction,
   makeActionCreator
@@ -23,6 +24,12 @@ export const endSession = () => {
 
 export const SESSION_SET_LOCATION = 'SESSION_SET_LOCATION';
 export const setLocation = makeActionCreator(SESSION_SET_LOCATION, 'location');
+
+export const SESSION_CLEAR_LOCATION = 'SESSION_CLEAR_LOCATION';
+export const clearLocation = makeActionCreator(SESSION_CLEAR_LOCATION);
+
+export const SESSION_SET_GRADESET = 'SESSION_SET_GRADESET';
+export const setGradeset = makeActionCreator(SESSION_SET_GRADESET, 'gradeset');
 
 
 // REDUCER
@@ -57,6 +64,18 @@ export default (state = initialState, action) => {
       return update(state, {
         current: {
           $merge: { location: payload.location }
+        }
+      });
+    case SESSION_CLEAR_LOCATION:
+      return update(state, {
+        current: {
+          $set: _.omit(state.current, ['location', 'gradeset'])
+        }
+      });
+    case SESSION_SET_GRADESET:
+      return update(state, {
+        current: {
+          $merge: { gradeset: payload.gradeset }
         }
       });
     default:

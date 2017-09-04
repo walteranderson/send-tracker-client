@@ -1,6 +1,6 @@
 import React from 'react';
 import LocationSearch from './LocationSearch';
-import LocationDashboard from './LocationDashboard';
+import { LocationDashboard } from '../containers';
 
 const SessionDashboard = (props) => {
   const {
@@ -15,7 +15,7 @@ const SessionDashboard = (props) => {
     <div className={className}>
       {
         hasLocation
-          ? <LocationDashboard location={session.location} />
+          ? <LocationDashboard location={session.location} gradeset={session.gradeset} />
           : <LocationSearch data={availableLocations} onSelect={setCurrentLocation} />
       }
     </div>

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import SessionDashboard from '../components/SessionDashboard';
-import { setLocation } from '../redux/modules/session';
+import { setLocation, setGradeset } from '../redux/modules/session';
 
 const mapStateToProps = (state) => {
   const {
@@ -22,8 +22,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCurrentLocation(currentLocation) {
-      dispatch(setLocation(currentLocation));
+    setCurrentLocation(location) {
+      dispatch(setLocation(location.id));
+      dispatch(setGradeset(location.gradesets[0]));
     }
   };
 };

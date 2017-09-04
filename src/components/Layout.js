@@ -12,6 +12,7 @@ const Layout = (props) => {
         colored
         title='Send Tracker'
         nav={nav} />
+
       <div>
         {props.children}
       </div>
