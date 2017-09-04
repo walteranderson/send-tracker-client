@@ -2,7 +2,7 @@ import * as api from '../../api';
 import { makeActionCreator } from '../../utils';
 
 import { mergeEntities } from './entities';
-import { userSchema } from '../../utils/schemas';
+import { userSchema } from '../schemas';
 
 // ACTIONS
 
