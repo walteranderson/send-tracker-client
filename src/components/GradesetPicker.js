@@ -8,6 +8,11 @@ const GradesetPicker = (props) => {
     defaultValue
   } = props;
 
+  const menuItems = gradesets.map(g => ({
+    id: g.id,
+    label: g.label
+  }));
+
   return (
     <div>
       <SelectField
@@ -15,7 +20,7 @@ const GradesetPicker = (props) => {
         itemValue='id'
         itemLabel='label'
         onChange={onChange}
-        menuItems={gradesets}
+        menuItems={menuItems}
         defaultValue={defaultValue}
         placeholder='Select a gradeset' />
     </div>

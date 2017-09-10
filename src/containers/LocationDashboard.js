@@ -14,7 +14,15 @@ const mapStateToProps = (state, ownProps) => {
 
   const selectedGradeset = _.find(gradesets, gradeset => gradeset.id === ownProps.gradeset);
 
+  let grades;
+  if (selectedGradeset) {
+    grades = _.filter(state.entities.grades, grade => {
+      return selectedGradeset.grades.indexOf(grade.id) !== -1;
+    });
+  }
+
   return {
+    grades,
     location,
     gradesets,
     selectedGradeset
@@ -28,6 +36,9 @@ const mapDispatchToProps = dispatch => {
     },
     clearLocation() {
       dispatch(clearLocation());
+    },
+    addSend(grade) {
+      console.log(grade);
     }
   };
 };
