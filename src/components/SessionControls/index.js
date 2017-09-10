@@ -19,8 +19,8 @@ const SessionControls = (props) => {
         <Button
           primary
           raised
-          label="End"
           onClick={end}>
+            End
         </Button>
       </div>
     );

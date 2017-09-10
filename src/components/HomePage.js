@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div className='md-cell'>
+    <div className='md-cell md-toolbar-relative'>
       <p>home page</p>
     </div>
   );
