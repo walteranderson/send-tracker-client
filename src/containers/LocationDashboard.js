@@ -1,7 +1,11 @@
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import LocationDashboard from '../components/LocationDashboard';
-import { setGradeset, clearLocation } from '../redux/modules/session';
+import {
+  addSend,
+  setGradeset,
+  clearLocation
+} from '../redux/modules/session';
 
 const mapStateToProps = (state, ownProps) => {
   const location = _.find(state.entities.locations, location => {
@@ -38,7 +42,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(clearLocation());
     },
     addSend(grade) {
-      console.log(grade);
+      dispatch(addSend(grade));
     }
   };
 };
