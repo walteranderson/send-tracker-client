@@ -31,7 +31,6 @@ const LocationDashboard = (props) => {
         }
       </div>
 
-
     </div>
   );
 };

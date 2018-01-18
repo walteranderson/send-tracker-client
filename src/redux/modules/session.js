@@ -42,12 +42,7 @@ export const SESSION_SET_GRADESET = 'SESSION_SET_GRADESET';
 export const setGradeset = makeActionCreator(SESSION_SET_GRADESET, 'gradeset');
 
 export const SESSION_ADD_SEND = 'SESSION_ADD_SEND';
-export const addSend = (grade) => {
-  return makeAction(SESSION_ADD_SEND, {
-    grade: grade.id,
-    createdAt: moment()
-  });
-};
+export const addSend = makeActionCreator(SESSION_ADD_SEND, 'send');
 
 
 // REDUCER
@@ -101,7 +96,7 @@ export default (state = initialState, action) => {
         current: {
           sends: {
             $autoArray: {
-              $push: [ payload ]
+              $push: [ payload.send ]
             }
           }
         }

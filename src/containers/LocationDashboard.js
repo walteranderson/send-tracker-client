@@ -41,8 +41,8 @@ const mapDispatchToProps = dispatch => {
     clearLocation() {
       dispatch(clearLocation());
     },
-    addSend(grade) {
-      dispatch(addSend(grade));
+    addSend(send) {
+      dispatch(addSend(send));
     }
   };
 };
