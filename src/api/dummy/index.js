@@ -1,4 +1,4 @@
-const NUM_GRADES = 10;
+// const NUM_GRADES = 10;
 
 const generateUID = () => {
     let firstPart = (Math.random() * 46656) | 0;
